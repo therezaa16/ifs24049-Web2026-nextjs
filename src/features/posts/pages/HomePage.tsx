@@ -119,7 +119,7 @@ function HomePage() {
           <div className="relative flex-1 md:w-80">
             <IconSearch
               size={18}
-              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"
+              className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-600"
             />
             <input
               type="text"
@@ -152,7 +152,7 @@ function HomePage() {
         </div>
       ) : filteredPosts.length === 0 ? (
         <div className="py-16 text-center text-slate-600 bg-white rounded-2xl border border-slate-200/80">
-          <IconArticle size={40} className="mx-auto text-slate-400 mb-2" />
+          <IconArticle size={40} className="mx-auto text-slate-600 mb-2" />
           <p className="font-medium">Belum ada postingan yang cocok.</p>
         </div>
       ) : (

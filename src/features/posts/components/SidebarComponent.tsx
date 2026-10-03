@@ -67,7 +67,7 @@ function SidebarComponent({ isSidebarOpen, onCloseMobile }) {
                     <div className="flex items-center gap-3">
                       <Icon
                         size={20}
-                        className={active ? "text-white" : "text-slate-500"}
+                        className={active ? "text-white" : "text-slate-600"}
                       />
                       <span>{item.label}</span>
                     </div>
