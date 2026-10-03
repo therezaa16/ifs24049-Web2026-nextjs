@@ -1,0 +1,4 @@
+# braces <=3.0.3 (DoS via deeply nested patterns): only reachable through the
+# dev-only chain eslint-config-next > fast-glob > micromatch > braces.
+# No patched release exists upstream and it is never shipped in the runtime bundle.
+GHSA-vfj7-8cjw-p6xm
