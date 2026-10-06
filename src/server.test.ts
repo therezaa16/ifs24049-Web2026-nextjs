@@ -72,31 +72,17 @@ describe("server launcher", () => {
     expect((spawnMock.mock.calls[0][1] as string[]).slice(-1)[0]).toBe("4200");
   });
 
-  it("should read APP_PORT from the .env file", async () => {
+  it.each([
+    ["APP_PORT", "COMMENT\nOTHER=1\nAPP_PORT=\n APP_PORT = 4300 \r\n", "4300"],
+    ["PORT", "PORT=4400\n", "4400"],
+    ["no port", "FOO=bar\n", "3000"],
+  ])("should resolve the port from the .env file (%s)", async (_label, content, expected) => {
     existsSyncMock.mockReturnValue(true);
-    readFileSyncMock.mockReturnValue("FOO=bar\nAPP_PORT=4300\n");
+    readFileSyncMock.mockReturnValue(content);
 
     await launch();
 
-    expect((spawnMock.mock.calls[0][1] as string[]).slice(-1)[0]).toBe("4300");
-  });
-
-  it("should read PORT from the .env file when APP_PORT is missing", async () => {
-    existsSyncMock.mockReturnValue(true);
-    readFileSyncMock.mockReturnValue("PORT=4400\n");
-
-    await launch();
-
-    expect((spawnMock.mock.calls[0][1] as string[]).slice(-1)[0]).toBe("4400");
-  });
-
-  it("should fall back to 3000 when .env has no port", async () => {
-    existsSyncMock.mockReturnValue(true);
-    readFileSyncMock.mockReturnValue("FOO=bar\n");
-
-    await launch();
-
-    expect((spawnMock.mock.calls[0][1] as string[]).slice(-1)[0]).toBe("3000");
+    expect((spawnMock.mock.calls[0][1] as string[]).slice(-1)[0]).toBe(expected);
   });
 
   it("should fall back to 3000 when .env cannot be read", async () => {
