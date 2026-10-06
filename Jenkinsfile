@@ -209,12 +209,9 @@ pipeline {
                         -x ".env" \
                         -x ".env.*" \
                         -x "coverage/*" \
-                        -x ".next/*" \
-                        -x "out/*" \
                         -x ".trivy-cache/*" \
                         -x "latest-app.zip" \
-                        -x "trivy-results.sarif" \
-                        -x ".docs/*"
+                        -x "trivy-results.sarif"
 
                     echo "=== Application Package Created ==="
 
