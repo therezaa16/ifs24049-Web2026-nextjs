@@ -11,11 +11,11 @@ function getPort(): string {
     try {
       const content = fs.readFileSync(envPath, "utf-8");
       const match = content.match(/^\s*APP_PORT\s*=\s*(.+)$/m);
-      if (match && match[1]) {
+      if (match) {
         return match[1].trim();
       }
       const portMatch = content.match(/^\s*PORT\s*=\s*(.+)$/m);
-      if (portMatch && portMatch[1]) {
+      if (portMatch) {
         return portMatch[1].trim();
       }
     } catch {

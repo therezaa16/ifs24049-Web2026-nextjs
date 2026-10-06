@@ -77,10 +77,7 @@ function ChangeCoverModal({ show, onClose, onSaved, post }) {
       data-testid="change-cover-modal"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs animate-in fade-in duration-200"
     >
-      <div
-        className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden transform transition-all"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden transform transition-all">
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/70">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-lg bg-sky-100 text-sky-700 flex items-center justify-center">
@@ -100,9 +97,9 @@ function ChangeCoverModal({ show, onClose, onSaved, post }) {
 
         <form onSubmit={handleSave} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <span className="block text-sm font-semibold text-slate-700 mb-2">
               Pilih Gambar Cover
-            </label>
+            </span>
             <label className="flex flex-col items-center justify-center w-full h-44 border-2 border-dashed border-slate-300 hover:border-indigo-500 rounded-2xl cursor-pointer bg-slate-50/50 hover:bg-indigo-50/20 transition-all overflow-hidden relative">
               {previewUrl ? (
                 <img
