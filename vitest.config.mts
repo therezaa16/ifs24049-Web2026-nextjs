@@ -24,6 +24,7 @@ export default defineConfig({
         "node_modules/**",
         "src/setupTests.ts",
         "src/test-utils.tsx",
+        "src/types/**",
         "**/*.test.{ts,tsx}",
         ".next/**",
       ],
