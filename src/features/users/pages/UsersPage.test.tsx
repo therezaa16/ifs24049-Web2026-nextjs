@@ -103,6 +103,7 @@ describe("UsersPage", () => {
     unmount();
     resolveLoad();
     await pendingPromise;
-    // No error = isMounted guard correctly prevents setState after unmount
+    // isMounted guard mencegah setState setelah unmount; tidak ada sisa UI dan tidak ada error
+    expect(screen.queryAllByText("Memuat daftar pengguna...")).toHaveLength(0);
   });
 });
